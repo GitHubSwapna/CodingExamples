@@ -1,11 +1,6 @@
 package com.example.demo.CodingExamples;
 
-import java.util.Map;
-import java.util.List;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -18,7 +13,7 @@ public class Demo1   {
 
         System.out.println("Sorted Array: " + Arrays.toString(numbers));
         findSumOfEven();
-        List<Integer> inputs = List.of(10, 20, 4, 45, 99, 23);
+        List<Integer> inputs = List.of(10, 20, 10, 45, 90, 50,20);
         findSecondLargestNumber( 2,  inputs);
         System.out.println(" Count the frequency of each character in a string");
         findCountofCharacters("paramaveera");
@@ -34,6 +29,10 @@ public class Demo1   {
         System.out.println(" Group words by their length");
         List<String> strss = List.of("testsw","swaswa","sara","radha","amma","latha");
         groupWordsByLength(strss);
+        System.out.println("Find the average of a list of numbers");
+        findTheAvarageOfGivenList(inputs);
+        System.out.println(" Remove duplicates from a list");
+        removeDuplicatesFromGivenList(inputs);
 
 
     }
@@ -114,6 +113,26 @@ public class Demo1   {
         });
 
     }
+
+    public static void  findTheAvarageOfGivenList(List<Integer> values)
+    {
+        IntSummaryStatistics result =  values.stream().mapToInt(Integer::intValue).summaryStatistics();
+
+
+        System.out.println("Average of given number: " +  result.getAverage());
+    }
+
+    public static void  removeDuplicatesFromGivenList(List<Integer> values)
+    {
+        values
+                                        .stream()
+                                        .mapToInt(Integer::intValue)
+                                        .distinct().forEach(System.out::println);
+
+
+
+    }
+
 
 
 }
